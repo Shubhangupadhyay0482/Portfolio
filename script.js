@@ -67,3 +67,47 @@ window.addEventListener("mousemove", function (event) {
     revealObserver.observe(element);
   });
 });
+const contactForm = document.getElementById("contact-form");
+const submitBtn = document.getElementById("submit-btn");
+const popup = document.getElementById("popup");
+const closePopup = document.getElementById("close-popup");
+
+contactForm.addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  submitBtn.textContent = "Sending...";
+  submitBtn.disabled = true;
+
+  const formData = new FormData(contactForm);
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      popup.classList.add("show");
+      contactForm.reset();
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  } catch (error) {
+    alert("Network error. Please check your internet and try again.");
+  }
+
+  submitBtn.textContent = "Send Message";
+  submitBtn.disabled = false;
+});
+
+closePopup.addEventListener("click", function () {
+  popup.classList.remove("show");
+});
+
+popup.addEventListener("click", function (event) {
+  if (event.target === popup) {
+    popup.classList.remove("show");
+  }
+});

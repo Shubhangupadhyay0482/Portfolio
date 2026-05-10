@@ -238,45 +238,51 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="section" id="contact">
-      <div class="container contact-container">
+    <!-- CONTACT -->
+<form class="contact-form reveal" id="contact-form">
+  <input 
+    type="hidden" 
+    name="access_key" 
+    value="24ab2692-68ef-4047-a7b6-c9fe88036f8a"
+  />
 
-        <div class="contact-text reveal">
-          <h2>Let's <span>Connect</span></h2>
+  <input 
+    type="hidden" 
+    name="subject" 
+    value="New Portfolio Contact Message"
+  />
 
-          <p>
-            Have a website idea or want a modern redesign for your brand?
-            Send a message and let’s build something clean and premium.
-          </p>
+  <input 
+    type="text" 
+    name="name" 
+    placeholder="Your Name" 
+    required 
+  />
 
-          <div class="contact-links">
-            <a href="mailto:shubhupadhyay213@gmail.com">✉️ Email</a>
-            <a href="#">💼 LinkedIn</a>
-            <a href="#">💻 GitHub</a>
-          </div>
-        </div>
+  <input 
+    type="email" 
+    name="email" 
+    placeholder="Your Email" 
+    required 
+  />
 
-        <form 
-          class="contact-form reveal" 
-          action="mailto:shubhupadhyay213@gmail.com" 
-          method="post" 
-          enctype="text/plain"
-        >
-          <input type="text" name="Name" placeholder="Your Name" required />
+  <textarea 
+    name="message" 
+    placeholder="Tell me about your project" 
+    required
+  ></textarea>
 
-          <input type="email" name="Email" placeholder="Your Email" required />
+  <button type="submit" id="submit-btn">Send Message</button>
+</form>
 
-          <textarea 
-            name="Message" 
-            placeholder="Tell me about your project" 
-            required
-          ></textarea>
-
-          <button type="submit">Send Message</button>
-        </form>
-
-      </div>
-    </section>
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <div class="popup-icon">✓</div>
+    <h3>Message Sent Successfully!</h3>
+    <p>Thanks for reaching out. I’ll get back to you soon.</p>
+    <button id="close-popup">Done</button>
+  </div>
+</div>
 
   </main>
 
